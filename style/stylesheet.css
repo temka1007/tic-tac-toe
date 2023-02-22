@@ -1,0 +1,29 @@
+* {
+  /* border: 1px solid red; */
+}
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#gameboard {
+  height: 450px;
+  width: 450px;
+}
+.cell-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  border: 1px solid black;
+}
+.cell-container div {
+  font-family: "Mynerve", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  border: 1px solid black;
+}
