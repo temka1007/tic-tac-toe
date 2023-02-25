@@ -15,9 +15,19 @@ const playerName = (() => {
   const secondPlayerNameInputValue = document.querySelector(
     ".second-player-name input"
   );
+  const isInputEmpty = (e) => {
+    if ((e.target.value === "first-player")&&(firstPlayerNameInputValue.value === "")) {
+      playerName.firstPlayer = "player 1";
+      firstPlayerDiv.textContent = "player 1";
+    }
+    if ((e.target.value === "second-player")&&(secondPlayerNameInputValue.value === "")) {
+      playerName.secondPlayer = "player 2";
+      secondPlayerDiv.textContent = "player 2";
+    }
+  }
 
   playerNameSubmitBtn.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
       if (btn.value === "first-player") {
         while (firstPlayerDiv.firstChild) {
           firstPlayerDiv.removeChild(firstPlayerDiv.firstChild);
@@ -32,6 +42,7 @@ const playerName = (() => {
         secondPlayerDiv.textContent = secondPlayerNameInputValue.value;
         playerName.secondPlayer = secondPlayerNameInputValue.value;
       }
+      isInputEmpty(e);
     });
   });
   return {
@@ -42,16 +53,20 @@ const playerName = (() => {
 
 // eslint-disable-next-line no-unused-vars
 const gameboard = (() => {
+  // eslint-disable-next-line no-alert
+  alert("If you are using 1080p display, zoom out to 75%.")
+
   function isUndefined() {
-    if(playerName.firstPlayer === undefined){
-      playerName.firstPlayer = "player 1"
-    } 
-    if(playerName.secondPlayer === undefined) {
-      playerName.secondPlayer = "player 2"
+    if (playerName.firstPlayer === ("" || undefined)) {
+      playerName.firstPlayer = "player 1";
     }
+    if (playerName.secondPlayer === ("" || undefined)) {
+      playerName.secondPlayer = "player 2";
+    }
+    console.log(playerName.firstPlayer, playerName.secondPlayer);
   }
 
-  isUndefined()
+  isUndefined();
 
   let playerXCells = [];
   let playerOCells = [];
@@ -88,14 +103,14 @@ const gameboard = (() => {
     const cell = document.querySelector(`button[value='${element}'`);
     cell.textContent = "O";
   }
-  
+
   const announcerDiv = document.querySelector(".announcer");
 
   const draw = () => {
-    if(playerXCells.length + playerOCells.length === 9) {
+    if (playerXCells.length + playerOCells.length === 9) {
       announcerDiv.textContent = "Game is draw!";
     }
-  }
+  };
 
   const announcer = (winner) => {
     if (winner === "x") {
@@ -114,7 +129,7 @@ const gameboard = (() => {
         console.log("winner is x");
         announcer("x");
         disableBtn();
-      } 
+      }
     }
   };
   const checkingEverySubsetO = () => {
@@ -132,14 +147,14 @@ const gameboard = (() => {
       player = "o";
       playerXCells.push(turn);
       announcerDiv.textContent = `${playerName.secondPlayer}'s turn!`;
-      draw()
+      draw();
       checkX(turn);
       checkingEverySubsetX();
     } else if (player === "o") {
       player = "x";
       playerOCells.push(turn);
       announcerDiv.textContent = `${playerName.firstPlayer}'s turn!`;
-      draw()
+      draw();
       checkO(turn);
       checkingEverySubsetO();
     }
@@ -150,7 +165,7 @@ const gameboard = (() => {
       playerTurn(+e.target.value);
       // eslint-disable-next-line no-param-reassign
       cell.disabled = true;
-      isUndefined()
+      isUndefined();
     });
   });
 
@@ -167,4 +182,3 @@ const gameboard = (() => {
     enableBtn();
   });
 })();
-

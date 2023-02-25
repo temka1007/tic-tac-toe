@@ -30,10 +30,10 @@
     <main>
       <div class="title">Tic Tac Toe</div>
       <div class="gameboard-container">
-        <div class="first-player-name">
-          <input type="text" placeholder="Player 1"/>
-          <button value="first-player"></button>
-        </div>
+        <form class="first-player-name">
+          <input type="text" id="name-value" placeholder="Player 1" required="required"/>
+          <button type="submit" value="first-player"></button>
+        </form>
         <div id="gameboard">
           <div class="cell-container">
             <button class="one" value="1"></button>
@@ -47,10 +47,10 @@
             <button class="9" value="9"></button>
           </div>
         </div>
-        <div class="second-player-name">
-          <input type="text" placeholder="Player 2"/>
-          <button value="second-player"></button>
-        </div>
+        <form class="second-player-name">
+          <input type="text" id="name-value" placeholder="Player 2" required/>
+          <button type="submit" value="second-player"></button>
+        </form>
       </div>
       <button class="playAgain">PLAY AGAIN</button>
       <div class="announcer">player 1's turn!</div>

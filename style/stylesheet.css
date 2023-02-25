@@ -15,10 +15,15 @@ main {
 }
 .gameboard-container {
   display: flex;
-  margin: 70px 0px 50px 0px;
+  margin: 70px 0px 30px 0px;
   align-items: center;
 }
-/* gameboard */
+.title {
+  font-family: "Rampart One", cursive;
+  font-size: 100px;
+}
+
+/* gameboard cells */
 #gameboard {
   height: 450px;
   min-width: 450px;
@@ -39,43 +44,7 @@ main {
   background-color: transparent;
   border: none;
   border: 1px solid black;
-}
-/* outer components */
-
-.title {
-  font-family: "Rampart One", cursive;
-  font-size: 100px;
-}
-.first-player-name,
-.second-player-name {
-  min-width: 100px;
-  height: 100px;
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.first-player-name > button,
-.second-player-name > button {
-  height: 35px;
-  width: 40px;
-  background-image: url(../Images/priority_FILL0_wght400_GRAD0_opsz48.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 5px;
-  background-color: transparent;
-  border: none;
-}
-input {
-  width: 100%;
-  border: none;
-  background-color: rgba(113, 113, 113, 0.3);
-  border-radius: 3px;
-  height: 25px;
-}
-.announcer {
-  font-size: 50px;
-  font-family: "Tilt Warp", cursive;
+  cursor: pointer;
 }
 button:disabled,
 button[disabled] {
@@ -88,4 +57,97 @@ button[disabled] {
   background-color: transparent;
   border: none;
   border: 1px solid black;
+}
+
+/* player name input */
+
+.first-player-name,
+.second-player-name {
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Tilt Warp", cursive;
+  font-size: 30px;
+}
+.first-player-name > button,
+.second-player-name > button {
+  height: 45px;
+  width: 50px;
+  background-image: url(../Images/priority_FILL0_wght400_GRAD0_opsz48.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+input {
+  width: 100%;
+  border: 1px solid rgb(105, 105, 105);
+  background-color: rgba(113, 113, 113, 0.3);
+  border-radius: 3px;
+  height: 25px;
+  font-family: "Tilt Warp", cursive;
+  font-size: 20px;
+  padding: 5px;
+}
+input:focus{
+  outline: 1.2px solid black;
+}
+
+/* announcement and  */
+
+.announcer {
+  font-size: 50px;
+  font-family: "Tilt Warp", cursive;
+}
+
+/* play again button */
+
+.playAgain {
+  background-color: transparent;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Tilt Warp", Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+.playAgain:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+.playAgain:active {
+  background-color: transparent;
+  border-color: #000000;
+  transform: scale(0.96);
+}
+.playAgain:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
+}
+.playAgain {
+  margin-bottom: 20px;
 }
