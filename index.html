@@ -12,24 +12,48 @@
       href="https://fonts.googleapis.com/css2?family=Mynerve&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap"
+      rel="stylesheet"
+    />
     <title>TIC TAC TOE</title>
   </head>
   <body>
     <main>
-      <div></div>
-      <div id="gameboard">
-        <div class="cell-container">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+      <div class="title">Tic Tac Toe</div>
+      <div class="gameboard-container">
+        <div class="first-player-name">
+          <input type="text" placeholder="Player 1"/>
+          <button value="first-player"></button>
+        </div>
+        <div id="gameboard">
+          <div class="cell-container">
+            <button class="one" value="1"></button>
+            <button class="2" value="2"></button>
+            <button class="3" value="3"></button>
+            <button class="4" value="4"></button>
+            <button class="5" value="5"></button>
+            <button class="6" value="6"></button>
+            <button class="7" value="7"></button>
+            <button class="8" value="8"></button>
+            <button class="9" value="9"></button>
+          </div>
+        </div>
+        <div class="second-player-name">
+          <input type="text" placeholder="Player 2"/>
+          <button value="second-player"></button>
         </div>
       </div>
+      <button class="playAgain">PLAY AGAIN</button>
+      <div class="announcer">player 1's turn!</div>
     </main>
     <script src="./script.js"></script>
   </body>
